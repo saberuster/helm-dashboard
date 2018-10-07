@@ -1,0 +1,35 @@
+:host ::ng-deep .logo {
+  height: 64px;
+  line-height: 64px;
+  overflow: hidden;
+  padding-left: 24px;
+  position: relative;
+  transition: all .3s;
+}
+
+:host ::ng-deep .logo h1 {
+  display: inline-block;
+  margin: 0 0 0 12px;
+  font-size: 20px;
+  color: white;
+  font-family: Myriad Pro, Helvetica Neue, Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .logo img {
+  display: inline-block;
+  height: 32px;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+:host ::ng-deep .trigger:hover {
+  color: #1890ff;
+}

@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css";
+
+li {
+  outline: none
+}
+
+a {
+  text-decoration: none;
+}
+
+.app-page-header {
+  padding: 16px 32px 0 32px;
+  background-color: white;
+}
+

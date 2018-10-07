@@ -1,0 +1,28 @@
+<div style="box-shadow: 2px 0 6px rgba(0,21,41,.35);position: relative;z-index: 10">
+  <div class="logo">
+    <a [routerLink]="'/'">
+      <img src="../../../assets/logo.svg" alt="logo">
+      <h1>Helm Dashboard</h1>
+    </a>
+  </div>
+
+  <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+    <ng-container *ngFor="let menu of menus">
+      <li nz-menu-item [routerLink]="menu.to" *ngIf="!menu.hasChildren" [nzSelected]="menu.selected">
+        <span>
+          <i class="anticon {{menu.icon}}"></i>
+          <span class="nav-text">{{menu.name}}</span>
+        </span>
+      </li>
+      <li nz-submenu *ngIf="menu.hasChildren" [nzOpen]="menu.selected">
+        <span title><i class="anticon {{menu.icon}}"></i><span class="nav-text">{{menu.name}}</span></span>
+        <ul>
+          <li *ngFor="let subMenu of menu.children" nz-menu-item [routerLink]="subMenu.to"
+              [nzSelected]="subMenu.selected">
+            {{subMenu.name}}
+          </li>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>

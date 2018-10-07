@@ -1,0 +1,41 @@
+<div class="app-page-header">
+  <nz-breadcrumb style="margin-bottom: 16px">
+    <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Repo</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Repo List</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div style="display: flex">
+    <h1 style="margin-bottom: 16px">Repo List</h1>
+  </div>
+</div>
+
+<div style="margin: 24px">
+  <nz-card>
+    <div style="margin-bottom: 16px">
+      <button nz-button nzType="primary">
+        <i class="anticon anticon-plus"></i>
+        New
+      </button>
+    </div>
+    <nz-table #chartTable [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>URL</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of chartTable.data">
+        <td>{{data.name}}</td>
+        <td>{{data.url}}</td>
+        <td>
+          <a>Update</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a style="color: red">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</div>

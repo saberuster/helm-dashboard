@@ -1,0 +1,48 @@
+<div class="app-page-header">
+  <nz-breadcrumb style="margin-bottom: 16px">
+    <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Chart</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Search Chart</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div style="display: flex">
+    <h1 style="margin-bottom: 16px">Search Chart</h1>
+  </div>
+  <div style="text-align: center">
+    <nz-input-group nzSearch style="width: 522px" nzSize="large" [nzSuffix]="suffixButton">
+      <input type="text" nz-input placeholder="input search text" [(ngModel)]="keyword">
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch (click)="search()">Search</button>
+    </ng-template>
+  </div>
+  <div>
+    <nz-tabset style="margin-bottom: 16px">
+      <nz-tab nzTitle="All"></nz-tab>
+    </nz-tabset>
+  </div>
+</div>
+
+<div style="margin: 24px">
+  <div nz-row style="margin: 0 -12px">
+    <div nz-col nzSpan="8" style="margin-bottom: 16px;padding: 0 12px;height: 182px" *ngFor="let result of resultSet">
+      <nz-card
+        [nzActions]="[actionSetting,actionEllipsis]">
+        <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzAvatar]="{size: 'large'}">
+          <nz-card-meta [nzAvatar]="avatarTemplate" [nzTitle]="result.Name"
+                        [nzDescription]="result.Chart.description"></nz-card-meta>
+        </nz-skeleton>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar [nzSrc]="result.Chart.icon"></nz-avatar>
+      </ng-template>
+      <ng-template #actionSetting>
+        <i class="anticon anticon-setting"></i>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <i class="anticon anticon-ellipsis"></i>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
